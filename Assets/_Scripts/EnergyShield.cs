@@ -6,6 +6,7 @@ public class EnergyShield : MonoBehaviour
 {
 
     public TextMeshProUGUI scoreGT;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,9 @@ public class EnergyShield : MonoBehaviour
             int score = int.Parse(scoreGT.text);
             score += 1;
             scoreGT.text = score.ToString();
+            
+            audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
             }
             
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class DragonPicker : MonoBehaviour
 {
@@ -12,11 +13,16 @@ public class DragonPicker : MonoBehaviour
     public float energyShieldBottomY = -6f;
 
     public float energyShieldRadius = 1.5f;
+    //public TextMeshProUGUI healthGT;
 
     public List<GameObject> shieldList;
     // Start is called before the first frame update
     void Start()
     {
+        //GameObject scoreGo = GameObject.Find("Health");
+        //healthGT = scoreGo.GetComponent<TextMeshProUGUI>();
+        //healthGT.text = "3";
+
         for (int i = 1; i <= numEnergyShield; i++){
             GameObject tShieldGo = Instantiate<GameObject>(energyShieldPrefab);
             tShieldGo.transform.position = new Vector3(0, energyShieldBottomY, 0);
@@ -40,9 +46,14 @@ public class DragonPicker : MonoBehaviour
         shieldList.RemoveAt(shieldIndex);
         Destroy(tShieldGo);
 
+        /*(int health = int.Parse(healthGT.text);
+            health --;
+            healthGT.text = health.ToString();
+ */
         if (shieldList.Count == 0) {
             SceneManager.LoadScene("_0Scene");
         }
+       
     }
     
 }
