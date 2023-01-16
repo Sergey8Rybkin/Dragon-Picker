@@ -44,8 +44,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 1058
+  defaultScreenHeightWeb: 595
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   m_MTRendering: 1
@@ -347,7 +347,7 @@ PlayerSettings:
     BANNER_DYNAMIC_4: 
     BANNER_DYNAMIC_5: 
     BANNER_DYNAMIC_6: 
-    BANNER_STATIC_1: 
+    BANNER_STATIC_1: R-A-2113293-18
     BANNER_STATIC_2: 
   mobileMTRendering:
     Android: 1

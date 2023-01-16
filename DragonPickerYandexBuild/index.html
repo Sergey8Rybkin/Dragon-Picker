@@ -11,6 +11,9 @@
     <!-- Yandex Games SDK -->
     <script src="https://yandex.ru/games/sdk/v2"></script>
 
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb = window.yaContextCb || []</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
 
 
 
@@ -18,6 +21,29 @@
 
 
 
+    <style>
+        #RTBStatic1 {
+            position: fixed;
+            width: 80%;
+            height: 15%;
+            left: 10%;
+            bottom: 0;
+            display: none;
+        }
+
+        #RTBStatic1.show {
+            display: block;
+        }
+
+        @media screen and (max-width: 800px) {
+            #RTBStatic1 {
+                width: 320px;
+                height: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
 
 
 </head>
@@ -41,6 +67,34 @@
 
 
 
+<div id="RTBStatic1">
+    <div id="yandex_rtb_R-A-2113293-18"></div>
+    <script>
+        const rbtLoadGame1 = document.querySelector('#RTBStatic1');
+        rbtLoadGame1.classList.add('show');
+
+        function RenderStaticRTB1() {
+            try {
+                if (document.getElementById('RTBStatic1').style.display !== 'none') {
+                    window.yaContextCb.push(() => {
+                        Ya.Context.AdvManager.render({
+                            renderTo: 'yandex_rtb_R-A-2113293-18',
+                            blockId: 'R-A-2113293-18'
+                        })
+                    })
+
+                    setTimeout(function () {
+                        RenderStaticRTB1();
+                    }, 31000);
+                }
+            } catch (e) {
+                console.error('CRASH RenderStaticRTB1: ', e.message);
+            }
+        }
+
+        RenderStaticRTB1();
+    </script>
+</div>
 
 
 <script>
@@ -133,6 +187,12 @@
     }
 
     function StaticRBTDeactivate() {
+        try {
+            rbtLoadGame1.classList.remove('show');
+            document.getElementById('RTBStatic1').style.display = 'none';
+        } catch (e) {
+            console.error('CRASH off RTBStatic1: ', e.message);
+        }
     }
 
     function InitPlayer(photoSize, _scopes) {
